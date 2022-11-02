@@ -36,3 +36,5 @@ with open("./src/data.js", "w", encoding="utf8") as f:
             f.write(f"\n\n")
 
     f.write(f"var objects = {foo}")
+
+    print("github check")
