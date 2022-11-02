@@ -1,0 +1,96 @@
+
+
+V1
+do a pull request
+data.py is ran
+	checks in data folder and sees all images
+	stores all images in data.js file
+
+index.html is ran, checks for data.js variables and references the info on
+
+V2
+do a pull request
+data.py is ran
+	checks in data folder and sees all folders
+	goers inside every folder and stores images and text direcorties
+	stores variable for header.png or header.jpg
+	writes all directories to  data.js
+
+index.html is ran, 
+script.js is ran
+	makes a div for every folder
+	creates a header img for every folder (for every variable)
+	if clicked, a new div is made, showing al internal images with text next to it
+
+
+V3
+git pull request
+github actions
+	data.py file is ran
+		loops over all folders in data/ 
+			stores all content in a variable and stores those variables in data.js
+
+			var n_folder = 5
+
+			var imgUrls_1 = ["./data/folder1/header.png","./data/folder1/img1.png","./data/folder1/img2.png","./data/folder1/img3.png","./data/folder1/img4.png","./data/folder1/img5.png","./data/folder1/img6.png",]
+			var imgUrls_2 = ["./data/folder2/header.png","./data/folder2/img1.png","./data/folder2/img2.png","./data/folder2/img3.png","./data/folder2/img4.png","./data/folder2/img5.png","./data/folder2/img6.png"]	
+			var imgUrls_3 = [...]
+			var imgUrls_4 = [...]
+			var imgUrls_5 = [...]
+			...
+
+			var textUrls_1 = ["./data/folder1/description.html"]
+			var textUrls_2 = ["./data/folder2/description.html"]
+			var textUrls_3 = [...]
+			var textUrls_4 = [...]
+			var textUrls_5 = [...]
+			...
+
+
+index.html is ran, 
+script.js is ran, referncing data.js, iterating over the folder and making 
+
+<div class = "container">
+	<div class="folder1">
+		<img src="./data/folder1/header.png"">
+		<div onclick>
+			<img src="./data/folder1/img1.png">
+			<img src="./data/folder1/img2.png">
+			<img src="./data/folder1/img3.png">
+			<img src="./data/folder1/img4.png">
+			<img src="./data/folder1/img5.png">
+			<img src="./data/folder1/img6.png">
+		</div>
+	</div>
+	<div class="folder2">
+		<img src="./data/folder2/header.png"">
+		<div onclick>
+			<img src="./data/folder2/img1.png">
+			<img src="./data/folder2/img2.png">
+			<img src="./data/folder2/img3.png">
+			<img src="./data/folder2/img4.png">
+			<img src="./data/folder2/img5.png">
+			<img src="./data/folder2/img6.png">
+		</div>
+	</div>
+	<div class="folder3">
+		<img src="./data/folder3/header.png"">
+		<div onclick>
+			<img src="./data/folder3/img1.png">
+			<img src="./data/folder3/img2.png">
+			<img src="./data/folder3/img3.png">
+			<img src="./data/folder3/img4.png">
+			<img src="./data/folder3/img5.png">
+			<img src="./data/folder3/img6.png">
+		</div>
+	</div>
+</div>
+
+
+
+-------------------------------------------
+1: make a folder layout
+2: write a py file that can write out js variables
+3: read in those variables
+4: make an index that can use those variables
+5: deploy using github actions

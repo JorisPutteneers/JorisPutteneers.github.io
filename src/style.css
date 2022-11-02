@@ -1,0 +1,12 @@
+.header { max-height: 200px;}
+/* .images_div { border: 1px solid blue;  } */
+.test {position: relative; }
+.img {  max-height: 100px; }
+/* .header_child {border: 1px solid green; max-hei} */
+.images_header_text{position: absolute;  top: 50%;  left: 50%;  transform: translate(-50%, -50%);}
+.text_container { color: blue;  }
+.text {  height: 200px; word-wrap: break-word;}
+
+#Annelotte_Lammertse{color: blue;}
+
+
