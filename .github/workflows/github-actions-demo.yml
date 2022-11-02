@@ -10,4 +10,4 @@ jobs:
           ls ${{ github.workspace }}
       - name: execute python script
         run: |
-          python ../../pkg/data.py
+          python pkg/data.py
