@@ -37,4 +37,20 @@ with open("./src/data.js", "w", encoding="utf8") as f:
 
     f.write(f"var objects = {foo}")
 
-    print("github check")
+    # print("github check")
+
+
+path = "userdata"
+with open("./src/userdata.js", "w", encoding="utf8") as f:
+    items = os.listdir(f"./src/{path}")
+    f.write(f"var userdata = {{ \n")
+
+    
+    for item in items:
+        key = item.split('.')[0]
+        print(key)
+        with open(f"./src/{path}/{item}", "r", encoding="utf8") as g:
+            test = g.read()
+            f.write(f"'{key}':`{test}`, \n")
+        
+    f.write(f"}}")

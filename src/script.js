@@ -1,12 +1,24 @@
+
+// console.log(userdata);
+
+exandTitle('Annelotte_Lammertse', userdata['Annelotte_Lammertse'])
+createmenu('menu_container','menu', open,  userdata['bio'], userdata['contact'])    
+
 for(var i = 0; i < objects.length; i++){
-    
-    header_div(i)
+  header_div()
 }
 
-function header_div(i){
+
+// -----------------------------------functions
+
+
+function header_div(){
+  
+  
+  
     
-    let object = eval('({' + objects[i] + '})')[objects[i]] //grab every object
     var images = document.getElementById("container") //grab images element
+    let object = eval('({' + objects[i] + '})')[objects[i]] //grab every object
 
     let folder = document.createElement("div")
     folder.classList.add('folder') //create a div class
@@ -14,6 +26,7 @@ function header_div(i){
     let images_header = document.createElement("img") //create an image tag
     images_header.classList.add('header') //create a class
     images_header.src = object['images'][object['header_index']] //set the source to the images['header image']
+
 
     let header_image = document.createElement("div")
     header_image.classList.add('header_image') //create a class
@@ -31,10 +44,10 @@ function header_div(i){
     var x = 1
     images_header.onclick = function() {
     x +=1
+    let text = document.createElement("span")
+    text.classList.add('text')
     if(x % 2 == 0){
-        let text = document.createElement("span")
-        text.classList.add('text')
-             
+        console.log(x);
         for(var i = 0; i < object["images"].length; i++){
             
             content.classList.add('content')
@@ -50,7 +63,7 @@ function header_div(i){
     else{content.replaceChildren()}
 
     
-    }
+  }
 }
 
 function readTextFile(file, text, folder, header_image, content)
@@ -80,59 +93,140 @@ function readTextFile(file, text, folder, header_image, content)
 
 // make text appear on bio hover
 
-var Annelotte_lammertse = document.getElementById("Annelotte_Lammertse")
 
-Annelotte_lammertse.addEventListener("mouseover", open_about);
+function exandTitle(id, content){
 
+  var Annelotte_lammertse_container = document.getElementById(id)
+  var Annelotte_lammertse = document.createElement('div')
+  Annelotte_lammertse.innerHTML = "Annelotte_lammertse"
+  Annelotte_lammertse.classList.add("title")
 
-var about = document.createElement("div")
-about.innerHTML = "Joris putteneers is an architect and researcher, interested in speculating the anthroposcene through means of software, hardware and media technologies.  His work has been exhibited at MomA New York, Londen design festival, Venice Biennale and multiple film festivals.  He has taught studios and workshops internationally at the Bartlett UCL, Texas A&M, KUL Faculty of Architecture and TU Wien."
-about.classList.add('about')
-Annelotte_lammertse.appendChild(about)
-about.style.display = "none"
+  Annelotte_lammertse_container.appendChild(Annelotte_lammertse)
 
-function open_about(){
-  if (about.style.display !== "none") {
-    about.style.display = "none";
-  } else {
-    about.style.display = "block";
+  var about = document.createElement("div")
+  about.innerHTML = content
+  
+
+  
+  about.classList.add('about')
+  Annelotte_lammertse_container.appendChild(about)
+  about.style.display = "none"
+
+  Annelotte_lammertse.addEventListener("click", function(){
+
+    if (about.style.display !== "none") {
+      about.style.display = "none";
+    } else {
+      about.style.display = "block";
+    }
+
   }
-};
+  );
 
-
-
-var menu = document.getElementById("menu")
-
-// make even tlistener
-menu.addEventListener("click", openmenu)
-var menu_content = document.createElement("div")
-menu_content.classList.add('menu_content')
-
-menu.appendChild(menu_content)
-menu_content.style.display = "none"
-
-var bio = document.createElement("div")
-bio.innerHTML = "bio"
-var projects = document.createElement("div")
+}
 
 
 
 
-projects.innerHTML = "projects"
-var contact = document.createElement("div")
-contact.innerHTML = "contact"
 
-menu_content.appendChild(bio)
-menu_content.appendChild(projects)
-menu_content.appendChild(contact)
+// create dynamic menu
+function createmenu(menu_container, menu,  expand, bio_text, contact_text){
 
-// menu.appendChild(menu_content)
 
-function openmenu(){
-    if (menu_content.style.display !== "none") {
-        menu_content.style.display = "none";
-      } else {
-        menu_content.style.display = "block";
-      }
+  var menu_container = document.getElementById(menu_container)
+  var menu = document.getElementById(menu)
+
+  var menu_content = document.createElement("div")
+  menu_content.classList.add('menu_content')
+  menu_container.appendChild(menu_content)
+
+  var bio_container = document.createElement('div') //
+  var bio = document.createElement("div")
+  bio.innerHTML = "bio"
+  menu_content.appendChild(bio_container).appendChild(bio) //
+  
+
+  var bio_content = document.createElement("div")
+  bio_content.classList.add('menu_item_content')
+  bio_content.innerHTML = bio_text
+  
+  bio_container.appendChild(bio_content) //
+
+  var projects_container = document.createElement('div')
+
+  var projects = document.createElement("div")
+  projects.innerHTML = "projects"
+  menu_content.appendChild(projects_container).appendChild(projects) //
+
+  var projects_content = document.createElement("div")
+  projects_content.classList.add('menu_item_content')
+
+  menu_content.appendChild(projects_content)
+  
+  var contact_container = document.createElement('div')
+  var contact = document.createElement("div")
+  contact.innerHTML = "contact"
+  menu_content.appendChild(contact_container).appendChild(contact) //
+  
+  var contact_content = document.createElement("div")
+  contact_content.classList.add('menu_item_content')
+  contact_content.innerHTML = contact_text
+  
+  contact.appendChild(contact_content)
+
+  // ------------------------------
+  
+  for(var i = 0; i < objects.length; i++){
+    let object = eval('({' + objects[i] + '})')[objects[i]] 
+    let project_item = document.createElement("div")
+    project_item.addEventListener("click", function () {
+      console.log('ss')
+    })
+    project_item.innerHTML ="&nbsp;&nbsp;&nbsp &nbsp;" + object['folder_name']
+    projects_container.appendChild(projects_content).appendChild(project_item)
+  }
+  
+  contact_container.appendChild(contact_content)
+  
+
+  expand(menu,menu_content)
+  expand(bio,bio_content)
+  expand(projects,projects_content)
+  expand(contact,contact_content)
+  expandAll(menu,"menu_item_content")
+
+
+  }
+
+
+
+  
+  function open(container, content){
+
+    content.style.display = "none"
+    // console.log(typeof(content));
+    container.addEventListener("click", function () {
+      if (content.style.display !== "none") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }})
+
     };
-    
+
+function expandAll(container, content){
+  let className = document.getElementsByClassName(content)
+
+    container.addEventListener("click", function () {
+      
+      for(var i = 0; i < className.length; i++){
+        
+        if (className[i].style.display !== "none") {
+          className[i].style.display = "none";
+        }
+      }
+    })
+}
+
+
+
