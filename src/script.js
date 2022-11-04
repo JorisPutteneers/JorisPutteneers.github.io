@@ -299,3 +299,26 @@ function expandAll(container, content){
 
 
 
+// function larger(){
+//   let bigger = document.getElementById("bigger")
+//   let buttonpressed = 0
+//   bigger.addEventListener("click", function () {
+//     buttonpressed +=1
+//     let images = document.getElementsByClassName("img")
+//     for(var i = 0; i < images.length; i++){
+//       let buttonpressed_amount = 50+ (5 * buttonpressed)
+//       buttonpressed_amount.toString()
+//       buttonpressed_amount += 'px'
+//       console.log(images[i].style.maxHeight);
+//       images[i].style.maxHeight =buttonpressed_amount;
+//       // console.log();
+//     }
+
+//     // console.log('sdf');
+
+
+
+// }
+//   )
+// }
+// larger()

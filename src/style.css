@@ -1,11 +1,12 @@
  body{font-family: Arial, Helvetica}
  html{background-color: rgb(230,230,230);}
- .name{font-size: 2em;}
+ .name{font-size: 2em; cursor: pointer;}
  .menu, .menu_item{cursor: pointer; font-weight: 600;  }
  .header_image{cursor: pointer;}
 .folder{display: flex;}
 .header { max-height: 200px; }
 .header_image{flex: 1; }
+.header_image:hover{opacity: 0.5;}
 .menu{font-family: Arial, Helvetica, sans-serif; font-weight: 600;}
 .menu_item_content{ margin-left:20px; }
 .menu_content{margin-left: 10px; font-weight: 400;}
