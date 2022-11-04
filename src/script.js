@@ -40,30 +40,90 @@ function header_div(){
     folder.appendChild(header_image).appendChild(document.createElement("br"))
     folder.appendChild(header_image).appendChild(title)
     let content = document.createElement("div")
-
+    
+    
+    
+    
+    
+    
     var x = 1
-    images_header.onclick = function() {
-    x +=1
+    
+    
+    let foobar = startup();
+    
+    // console.log(foobar);
+    
+    images_header.onclick = function() {    
+      // let foobar = startup();
+      
+      
+      x +=1
+      let text = document.createElement("span")
+      text.classList.add('text')
+      
+      if(x % 2 == 0){
+
+        console.log(x);
+        for(var i = 0; i < object["images"].length; i++){
+          content.classList.add('content')
+          // console.log(viewing);
+          let img = document.createElement("img")
+          img.classList.add('img')
+          img.src = object["images"][i]
+          folder.appendChild(content).appendChild(img)
+        }
+        readTextFile(object["text"], text, folder,content)
+      }
+      
+      else{content.replaceChildren()
+        
+      }
+      
+      
+    }
+  
+  function startup() {
+    
+    x += Math.round(Math.random())
+    array = []
+    if(x !=1){
+      array.push(object["folder_name"])
+      
+      let viewing = document.getElementById("viewing")
+      for(var i = 0; i<array.length; i++){
+        
+        let bar = document.createElement("div")
+        bar.innerHTML = array[i]
+        viewing.appendChild(bar)
+        
+      }
+      
+      // console.log(array);
+      
+    }
     let text = document.createElement("span")
     text.classList.add('text')
     if(x % 2 == 0){
-        console.log(x);
-        for(var i = 0; i < object["images"].length; i++){
-            
-            content.classList.add('content')
-            
-            let img = document.createElement("img")
-            img.classList.add('img')
-            img.src = object["images"][i]
-            folder.appendChild(content).appendChild(img)
-        }
-        readTextFile(object["text"], text, folder,content)
-        }
+      // console.log(x);
+      for(var i = 0; i < object["images"].length; i++){
         
-    else{content.replaceChildren()}
-
+        content.classList.add('content')
+        
+        let img = document.createElement("img")
+        img.classList.add('img')
+        img.src = object["images"][i]
+        folder.appendChild(content).appendChild(img)
+      }
+      readTextFile(object["text"], text, folder,content)
+    }
+    
+    // console.log(array);
+    // console.log(array);
+    // else{content.replaceChildren()}
+    return array
     
   }
+  // startup()
 }
 
 function readTextFile(file, text, folder, header_image, content)
@@ -79,7 +139,7 @@ function readTextFile(file, text, folder, header_image, content)
                 {
                     var allText = rawFile.responseText;
                     text.innerHTML = allText
-                    console.log(rawFile.status);
+                    // console.log(rawFile.status);
                     header_image.appendChild(text_container).appendChild(text)  
                 }
             }
@@ -98,8 +158,8 @@ function exandTitle(id, content){
 
   var Annelotte_lammertse_container = document.getElementById(id)
   var Annelotte_lammertse = document.createElement('div')
-  Annelotte_lammertse.innerHTML = "Annelotte_lammertse"
-  Annelotte_lammertse.classList.add("title")
+  Annelotte_lammertse.innerHTML = "Annelotte_Lammertse"
+  Annelotte_lammertse.classList.add("name")
 
   Annelotte_lammertse_container.appendChild(Annelotte_lammertse)
 
@@ -134,7 +194,11 @@ function createmenu(menu_container, menu,  expand, bio_text, contact_text){
 
 
   var menu_container = document.getElementById(menu_container)
-  var menu = document.getElementById(menu)
+  var menu = document.createElement("div")
+  menu.classList.add('menu')
+  menu.innerHTML = 'menu'
+  menu_container.appendChild(menu)
+
 
   var menu_content = document.createElement("div")
   menu_content.classList.add('menu_content')
@@ -143,19 +207,22 @@ function createmenu(menu_container, menu,  expand, bio_text, contact_text){
   var bio_container = document.createElement('div') //
   var bio = document.createElement("div")
   bio.innerHTML = "bio"
+  bio.classList.add('menu_item')
   menu_content.appendChild(bio_container).appendChild(bio) //
   
 
   var bio_content = document.createElement("div")
   bio_content.classList.add('menu_item_content')
-  bio_content.innerHTML = bio_text
+  bio_content.innerHTML =  bio_text
   
   bio_container.appendChild(bio_content) //
 
   var projects_container = document.createElement('div')
 
   var projects = document.createElement("div")
-  projects.innerHTML = "projects"
+  projects.innerHTML =  'project'
+  projects.classList.add('menu_item')
+
   menu_content.appendChild(projects_container).appendChild(projects) //
 
   var projects_content = document.createElement("div")
@@ -166,11 +233,13 @@ function createmenu(menu_container, menu,  expand, bio_text, contact_text){
   var contact_container = document.createElement('div')
   var contact = document.createElement("div")
   contact.innerHTML = "contact"
+  contact.classList.add('menu_item')
+
   menu_content.appendChild(contact_container).appendChild(contact) //
   
   var contact_content = document.createElement("div")
   contact_content.classList.add('menu_item_content')
-  contact_content.innerHTML = contact_text
+  contact_content.innerHTML =  contact_text
   
   contact.appendChild(contact_content)
 
@@ -182,7 +251,7 @@ function createmenu(menu_container, menu,  expand, bio_text, contact_text){
     project_item.addEventListener("click", function () {
       console.log('ss')
     })
-    project_item.innerHTML ="&nbsp;&nbsp;&nbsp &nbsp;" + object['folder_name']
+    project_item.innerHTML =object['folder_name']
     projects_container.appendChild(projects_content).appendChild(project_item)
   }
   
