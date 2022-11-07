@@ -1,0 +1,26 @@
+ body{font-family: Arial, Helvetica}
+ html{background-color: rgb(230,230,230);}
+ .name{font-size: 2em; cursor: pointer;}
+ .menu, .menu_item{cursor: pointer; font-weight: 600;  }
+ .header_image{cursor: pointer;}
+.folder{display: flex;}
+.header { max-height: 200px; }
+.header_image{flex: 1; }
+.header_image:hover{opacity: 0.5;}
+.menu{font-family: Arial, Helvetica, sans-serif; font-weight: 600;}
+.menu_item_content{ margin-left:20px; }
+.menu_content{margin-left: 10px; font-weight: 400;}
+
+/* .header { max-height: 200px; } */
+/* .images_div { border: 1px solid blue;  } */
+/* .test {position: relative; } */
+.img {  max-height: 100px; font-size: 0; vertical-align: bottom; margin: 0; padding: 0;  }
+/* .content {height: 100%; width: 100%; object-fit: contain; } */
+/* .header_child {border: 1px solid green; max-hei} */
+/* .images_header_text{position: absolute;  top: 50%;  left: 50%;  transform: translate(-50%, -50%);} */
+.text_container {  max-width:100%; max-height:100%; }
+.text {  height: 200px; word-wrap: break-word;}
+.content{margin-left: 20px; }
+#Annelotte_Lammertse{color: blue;}
+
+#viewing{ float: right; position: fixed; top: 0px; right: 0px;}
